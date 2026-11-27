@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ledgerline"
+version = "0.1.0"
+description = "Local-first personal expense tracker with a smart, mapping-free CSV import engine. No LLMs."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+ledgerline = "ledgerline.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ledgerline"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
